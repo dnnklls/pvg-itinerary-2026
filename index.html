@@ -3,301 +3,341 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shanghai · PVG Layover — 25–26 Jun 2026</title>
+<title>Shanghai — PVG Layover, 25–26 June 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#f5f0e8; --bg2:#ede7db; --surface:#ffffff; --border:#d4cec2;
-    --text:#1a1a1a; --text-dim:#6b6560;
-    --accent:#c0432e; --accent-soft:#e8d3cb; --navy:#1e3a5f; --gold:#b88a3e;
-    --morning:#c08a2e; --afternoon:#c0432e; --evening:#1e3a5f; --night:#4a3f6b;
+    --bg:#ffffff; --bg2:#f5f5f7; --text:#1d1d1f; --text2:#6e6e73;
+    --accent:#0071e3; --line:rgba(0,0,0,.09); --line2:rgba(0,0,0,.06);
+    --radius:22px;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   body{
-    font-family:'Instrument Sans',system-ui,sans-serif;
+    font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
     background:var(--bg); color:var(--text);
-    line-height:1.55; -webkit-font-smoothing:antialiased;
+    font-size:17px; line-height:1.5; letter-spacing:-.012em;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   }
-  .wrap{max-width:720px;margin:0 auto;padding:0 20px}
+  ::selection{background:rgba(0,113,227,.16)}
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:740px;margin:0 auto;padding:0 24px}
   .eyebrow{
-    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.18em;
-    text-transform:uppercase; color:var(--accent); font-weight:500;
+    font-size:13px;font-weight:600;letter-spacing:.01em;text-transform:uppercase;
+    color:var(--accent);
   }
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;height:52px;
+    background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);
+    -webkit-backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between}
+  nav .brand{font-weight:600;font-size:15px;letter-spacing:-.02em}
+  nav .links{display:flex;gap:22px}
+  nav .links a{color:var(--text);font-size:13px;font-weight:400;opacity:.85}
+  nav .links a:hover{opacity:1;color:var(--accent)}
+  @media(max-width:520px){nav .links a:nth-child(2){display:none}}
 
   /* HERO */
-  .hero{
-    position:relative; color:#fff; padding:64px 0 56px; overflow:hidden;
-    background:
-      radial-gradient(120% 90% at 80% 0%, rgba(192,67,46,.55) 0%, rgba(192,67,46,0) 55%),
-      radial-gradient(120% 120% at 0% 100%, rgba(184,138,62,.35) 0%, rgba(30,58,95,0) 55%),
-      linear-gradient(160deg,#16294a 0%, #1e3a5f 55%, #14223d 100%);
-  }
-  .hero .wrap{position:relative;z-index:2}
-  .hero .eyebrow{color:#f0c9ba}
+  header.hero{padding:104px 0 56px}
+  @media(max-width:520px){header.hero{padding:72px 0 44px}}
   .hero h1{
-    font-family:'Fraunces',serif; font-weight:800; font-size:clamp(52px,15vw,92px);
-    line-height:.92; letter-spacing:-.02em; margin:10px 0 4px;
+    font-size:clamp(52px,12vw,84px);font-weight:700;letter-spacing:-.03em;
+    line-height:1.02;margin:14px 0 0;
   }
-  .hero .cn{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(20px,6vw,30px);opacity:.7;letter-spacing:.05em}
-  .hero .sub{font-size:16px;color:#e7e0d6;max-width:46ch;margin-top:16px}
-  .hero .sub b{color:#fff;font-weight:600}
-  .flightline{
-    display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;
-    font-family:'JetBrains Mono',monospace;font-size:12px;
-  }
-  .flightline span{
-    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
-    border-radius:999px;padding:7px 13px;color:#f4efe7;backdrop-filter:blur(4px);
+  .hero .lede{
+    font-size:clamp(20px,3vw,26px);font-weight:400;color:var(--text2);
+    letter-spacing:-.02em;line-height:1.32;margin-top:18px;max-width:30ch;
   }
 
-  /* CHIPS */
-  .chips{display:flex;gap:12px;overflow-x:auto;padding:24px 20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-  .chips::-webkit-scrollbar{display:none}
-  .chip{
-    flex:0 0 auto;scroll-snap-align:start;background:var(--surface);
-    border:1px solid var(--border);border-radius:16px;padding:14px 16px;min-width:140px;
-    box-shadow:0 1px 2px rgba(0,0,0,.03);
+  /* FLIGHT STRIP */
+  .flights{
+    margin-top:34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   }
-  .chip .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim)}
-  .chip .v{font-family:'Fraunces',serif;font-weight:600;font-size:19px;margin-top:4px;line-height:1.15}
-  .chip .v small{font-family:'Instrument Sans';font-weight:500;font-size:12px;color:var(--text-dim);display:block;margin-top:2px}
+  .flights .fr{
+    display:flex;align-items:baseline;gap:14px;padding:16px 0;
+    border-bottom:1px solid var(--line2);
+  }
+  .flights .fr:last-child{border-bottom:none}
+  .flights .dir{font-size:13px;font-weight:600;color:var(--text2);width:64px;flex:0 0 auto;letter-spacing:0}
+  .flights .when{font-weight:500;font-variant-numeric:tabular-nums}
+  .flights .code{margin-left:auto;font-size:14px;color:var(--text2);font-variant-numeric:tabular-nums}
 
-  section.block{padding:14px 0 8px}
-  .section-head{margin:34px 0 6px}
-  .section-head h2{font-family:'Fraunces',serif;font-weight:800;font-size:28px;letter-spacing:-.01em}
-  .section-head p{color:var(--text-dim);font-size:15px;margin-top:4px}
+  /* SPEC GRID */
+  .specs{
+    margin-top:30px;background:var(--bg2);border-radius:var(--radius);
+    display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden;
+  }
+  @media(max-width:520px){.specs{grid-template-columns:repeat(2,1fr)}}
+  .specs .s{padding:18px 20px;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+  .specs .s .k{font-size:12px;color:var(--text2);font-weight:500}
+  .specs .s .v{font-size:18px;font-weight:600;letter-spacing:-.02em;margin-top:5px;line-height:1.2}
+  .specs .s .v small{display:block;font-size:12px;font-weight:400;color:var(--text2);letter-spacing:-.01em;margin-top:3px}
 
-  /* SHAPE / TIMELINE */
-  .shape{
-    background:var(--surface);border:1px solid var(--border);border-radius:20px;
-    padding:6px 20px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,.04);
-  }
-  .tl{display:grid;grid-template-columns:64px 1fr;gap:0 16px;position:relative}
-  .tl .row{display:contents}
-  .tl .t{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);padding:16px 0;font-weight:500}
-  .tl .c{padding:16px 0;border-bottom:1px solid var(--bg2)}
-  .tl .row:last-child .c{border-bottom:none}
-  .tl .c .lab{font-weight:600;font-size:15px}
-  .tl .c .det{color:var(--text-dim);font-size:13.5px;margin-top:2px}
-  .tl .c .det b{color:var(--text)}
+  /* SECTIONS */
+  section{padding:64px 0 0}
+  .shead{margin-bottom:8px}
+  .shead h2{font-size:clamp(30px,5vw,40px);font-weight:700;letter-spacing:-.028em;line-height:1.08}
+  .shead p{color:var(--text2);font-size:18px;margin-top:10px;max-width:52ch}
 
-  /* DAY */
-  .day{margin-top:18px}
-  .daytag{
-    display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;
-    font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);
-    background:#e7ecf2;border:1px solid #d3ddea;border-radius:999px;padding:6px 12px;
-  }
-  .part{margin-top:14px}
-  .part-h{display:flex;align-items:center;gap:10px;margin:18px 0 10px}
-  .part-h .dot{width:9px;height:9px;border-radius:50%}
-  .part-h .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
-  .part-h .ln{flex:1;height:1px;background:var(--border)}
-  .m .dot{background:var(--morning)} .a .dot{background:var(--afternoon)}
-  .e .dot{background:var(--evening)} .n .dot{background:var(--night)}
+  /* TIMELINE */
+  .timeline{margin-top:26px;border-top:1px solid var(--line)}
+  .timeline .row{display:flex;gap:18px;padding:18px 2px;border-bottom:1px solid var(--line)}
+  .timeline .tm{flex:0 0 76px;font-weight:600;font-variant-numeric:tabular-nums;font-size:15px;letter-spacing:-.01em}
+  .timeline .tx .h{font-weight:600}
+  .timeline .tx .d{color:var(--text2);font-size:15px;margin-top:3px}
+  .timeline .tx .d b{color:var(--text);font-weight:600}
 
-  .card{
-    background:var(--surface);border:1px solid var(--border);border-radius:16px;
-    padding:16px 18px;margin-bottom:10px;box-shadow:0 1px 2px rgba(0,0,0,.03);
+  /* PLAN PARTS */
+  .part{margin-top:40px}
+  .part:first-of-type{margin-top:26px}
+  .part-h{display:flex;align-items:center;gap:11px;margin-bottom:16px}
+  .part-h svg{width:21px;height:21px;color:var(--accent);flex:0 0 auto}
+  .part-h .t{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text2)}
+  .part-h .ln{flex:1;height:1px;background:var(--line)}
+
+  .card{background:var(--bg2);border-radius:var(--radius);padding:24px 26px;margin-bottom:12px}
+  .card h3{font-size:21px;font-weight:600;letter-spacing:-.02em;line-height:1.22}
+  .card h3 .tag{font-size:12px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.02em;margin-left:8px;vertical-align:middle}
+  .card p{color:#33333a;font-size:16px;margin-top:9px;line-height:1.5}
+  .card .meta{
+    margin-top:16px;padding-top:14px;border-top:1px solid var(--line2);
+    display:flex;flex-wrap:wrap;gap:6px 22px;font-size:13.5px;color:var(--text2);
+    font-variant-numeric:tabular-nums;
   }
-  .card h3{font-family:'Fraunces',serif;font-weight:600;font-size:18px;line-height:1.25;display:flex;gap:9px;align-items:baseline}
-  .card h3 .emo{font-size:17px;flex:0 0 auto}
-  .card p{font-size:14.5px;color:#39322c;margin-top:6px}
-  .card .note{
-    font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text-dim);
-    margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 14px;
-  }
-  .card .note b{color:var(--accent);font-weight:500}
-  .pill{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
-    background:var(--accent-soft);color:#8a3522;border-radius:6px;padding:3px 7px;margin-left:auto}
+  .card .meta b{color:var(--text);font-weight:600}
 
   /* PLAN B */
-  .planb{background:var(--bg2);border:1px dashed var(--border);border-radius:18px;padding:18px 20px;margin-top:18px}
-  .planb h3{font-family:'Fraunces',serif;font-weight:700;font-size:18px;display:flex;align-items:center;gap:8px}
-  .planb p{font-size:14px;color:#4a443d;margin-top:8px}
-  .planb ul{margin:10px 0 0 2px;list-style:none}
-  .planb li{font-size:14px;color:#4a443d;padding-left:18px;position:relative;margin-top:6px}
-  .planb li::before{content:"→";position:absolute;left:0;color:var(--accent)}
+  .planb{margin-top:34px;border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px}
+  .planb h3{font-size:19px;font-weight:600;letter-spacing:-.02em}
+  .planb p{color:var(--text2);margin-top:8px;font-size:16px}
+  .planb ul{list-style:none;margin-top:14px;display:grid;gap:9px}
+  .planb li{position:relative;padding-left:22px;font-size:16px;color:#33333a}
+  .planb li::before{content:"";position:absolute;left:2px;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
 
-  /* DEPART */
-  .depart{
-    background:linear-gradient(160deg,#1e3a5f,#16294a);color:#fff;border-radius:18px;
-    padding:20px;margin-top:18px;
+  /* DEPART CARD */
+  .depart{margin-top:26px;background:var(--bg2);border-radius:var(--radius);padding:26px}
+  .depart .lab{font-size:13px;color:var(--text2);font-weight:500}
+  .depart .stat{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+  .depart .stat .c{text-align:left}
+  .depart .stat .c .k{font-size:12px;color:var(--text2);font-weight:500}
+  .depart .stat .c .n{font-size:34px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums;margin-top:2px}
+  .depart .foot{font-size:14px;color:var(--text2);margin-top:18px;line-height:1.5}
+
+  /* LOGISTICS */
+  .logi{margin-top:24px;border-top:1px solid var(--line)}
+  .logi .row{display:flex;gap:16px;padding:20px 2px;border-bottom:1px solid var(--line)}
+  .logi .ic{flex:0 0 24px;color:var(--accent);margin-top:1px}
+  .logi .ic svg{width:23px;height:23px}
+  .logi h4{font-size:17px;font-weight:600;letter-spacing:-.01em}
+  .logi p{color:var(--text2);font-size:15.5px;margin-top:4px;line-height:1.5}
+  .logi p b{color:var(--text);font-weight:600}
+
+  footer{margin-top:64px;border-top:1px solid var(--line);padding:28px 0 60px}
+  footer p{font-size:12px;color:var(--text2);line-height:1.7}
+
+  @media(prefers-reduced-motion:no-preference){
+    .fade{opacity:0;transform:translateY(12px);animation:fu .7s cubic-bezier(.2,.6,.2,1) forwards}
+    .fade.d1{animation-delay:.06s}.fade.d2{animation-delay:.12s}.fade.d3{animation-delay:.18s}
+    @keyframes fu{to{opacity:1;transform:none}}
   }
-  .depart .eyebrow{color:#f0c9ba}
-  .depart h3{font-family:'Fraunces',serif;font-weight:700;font-size:20px;margin:6px 0 12px}
-  .depart .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-  .depart .b{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px}
-  .depart .b .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#c9d4e2}
-  .depart .b .v{font-family:'Fraunces',serif;font-weight:700;font-size:24px;margin-top:3px}
-  .depart .foot{font-size:13px;color:#d7dfe9;margin-top:12px}
-
-  /* TIPS */
-  .tips{display:grid;gap:10px;margin-top:16px}
-  .tip{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:15px 17px}
-  .tip h4{font-family:'Fraunces',serif;font-weight:600;font-size:16px;display:flex;gap:8px;align-items:center}
-  .tip p{font-size:14px;color:#413b34;margin-top:5px}
-  .tip p b{color:var(--accent)}
-
-  footer{text-align:center;padding:40px 20px 56px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em}
-  footer .hr{width:40px;height:2px;background:var(--accent);margin:0 auto 18px;border-radius:2px}
-  a{color:var(--accent)}
 </style>
 </head>
 <body>
 
+  <nav>
+    <div class="wrap">
+      <span class="brand">Shanghai</span>
+      <span class="links">
+        <a href="#day">The day</a>
+        <a href="#home">Getting home</a>
+        <a href="#logistics">Logistics</a>
+      </span>
+    </div>
+  </nav>
+
   <header class="hero">
     <div class="wrap">
-      <div class="eyebrow">PVG Layover · 25–26 Jun 2026</div>
-      <h1>Shanghai</h1>
-      <div class="cn">上海 — 浦东</div>
-      <p class="sub">One golden afternoon between two red-eyes. You land at dawn, sleep it off, then own the dusk over Lujiazui. Staying at <b>Crowne Plaza Jinxiu</b>, Pudong.</p>
-      <div class="flightline">
-        <span>↓ SQ826 · ARR 25 JUN 06:35</span>
-        <span>↑ SQ827 · DEP 26 JUN 08:05</span>
+      <div class="eyebrow fade">PVG Layover · 25–26 June 2026</div>
+      <h1 class="fade d1">Shanghai.</h1>
+      <p class="lede fade d2">One free afternoon between two red-eyes. Land at dawn, sleep it off, own the dusk over Pudong.</p>
+
+      <div class="flights fade d3">
+        <div class="fr"><span class="dir">Arrive</span><span class="when">Thu 25 Jun · 06:35</span><span class="code">SQ826</span></div>
+        <div class="fr"><span class="dir">Depart</span><span class="when">Fri 26 Jun · 08:05</span><span class="code">SQ827</span></div>
+      </div>
+
+      <div class="specs fade d3">
+        <div class="s"><div class="k">Staying at</div><div class="v">Crowne Plaza Jinxiu<small>399 Jinzun Rd · Metro L7</small></div></div>
+        <div class="s"><div class="k">Usable time</div><div class="v">~8 hours<small>One afternoon + evening</small></div></div>
+        <div class="s"><div class="k">Weather</div><div class="v">28–32°C<small>Humid · plum rain</small></div></div>
+        <div class="s"><div class="k">Money</div><div class="v">CNY ¥<small>Alipay / WeChat Pay</small></div></div>
+        <div class="s"><div class="k">Time</div><div class="v">GMT+8<small>Same as SIN</small></div></div>
+        <div class="s"><div class="k">Around</div><div class="v">Metro / Didi<small>~¥30 to Lujiazui</small></div></div>
       </div>
     </div>
   </header>
 
-  <div class="chips">
-    <div class="chip"><div class="k">Time on ground</div><div class="v">~24 hrs<small>≈ 8 hrs really usable</small></div></div>
-    <div class="chip"><div class="k">Base</div><div class="v">Crowne Plaza Jinxiu<small>399 Jinzun Rd · Metro L7</small></div></div>
-    <div class="chip"><div class="k">Weather</div><div class="v">28–32°C<small>Plum-rain · humid · showers</small></div></div>
-    <div class="chip"><div class="k">Currency</div><div class="v">CNY ¥<small>Alipay / WeChat Pay</small></div></div>
-    <div class="chip"><div class="k">Timezone</div><div class="v">GMT+8<small>Same as SIN — no jet lag</small></div></div>
-    <div class="chip"><div class="k">Get around</div><div class="v">Metro L7 / Didi<small>~¥30 to Lujiazui</small></div></div>
-  </div>
-
   <main class="wrap">
 
-    <div class="section-head">
-      <div class="eyebrow">The shape of it</div>
-      <h2>Your 24 hours</h2>
-      <p>A dawn arrival and an early call mean one real window: Thursday afternoon into the night.</p>
-    </div>
-    <div class="shape">
-      <div class="tl">
-        <div class="row"><div class="t">THU<br>06:35</div><div class="c"><div class="lab">Land at PVG · SQ826</div><div class="det">Self-process CIQ + GD, board crew bus. <b>~1h ride</b> to the hotel in Pudong.</div></div></div>
-        <div class="row"><div class="t">~08:30</div><div class="c"><div class="lab">Check in · Crowne Plaza Jinxiu</div><div class="det">Crash for a few hours — you've earned it. Aim to be moving by midday.</div></div></div>
-        <div class="row"><div class="t">13:00<br>→18:00</div><div class="c"><div class="lab">Free afternoon + evening</div><div class="det">Crew happy hour, then Lujiazui &amp; the riverfront. <b>This is the day.</b></div></div></div>
-        <div class="row"><div class="t">FRI<br>04:45</div><div class="c"><div class="lab">Call time · SQ827</div><div class="det">Pickup <b>05:45</b>, STD <b>08:05</b>. Be in bed early Thursday — non-negotiable.</div></div></div>
+    <section>
+      <div class="shead">
+        <div class="eyebrow">The shape of it</div>
+        <h2>Your 24 hours.</h2>
+        <p>A dawn arrival and a pre-dawn call leave one real window. Thursday afternoon into the night.</p>
       </div>
-    </div>
+      <div class="timeline">
+        <div class="row"><div class="tm">06:35<br><span style="font-weight:400;color:var(--text2);font-size:12px">Thu</span></div><div class="tx"><div class="h">Land at PVG on SQ826</div><div class="d">Self-process CIQ, board the crew bus. About an hour to the hotel.</div></div></div>
+        <div class="row"><div class="tm">~08:30</div><div class="tx"><div class="h">Check in at Crowne Plaza Jinxiu</div><div class="d">Sleep off the red-eye. Aim to be moving by noon.</div></div></div>
+        <div class="row"><div class="tm">13:00</div><div class="tx"><div class="h">Free afternoon and evening</div><div class="d">Crew happy hour, then Lujiazui and the river. <b>This is the day.</b></div></div></div>
+        <div class="row"><div class="tm">04:45<br><span style="font-weight:400;color:var(--text2);font-size:12px">Fri</span></div><div class="tx"><div class="h">Call for SQ827</div><div class="d">Pickup <b>05:45</b>, departs <b>08:05</b>. An early night Thursday is non-negotiable.</div></div></div>
+      </div>
+    </section>
 
-    <div class="section-head">
-      <div class="eyebrow">Thursday 25 June</div>
-      <h2>The plan</h2>
-      <p>Everything below stays on the Pudong side of the river — no backtracking, all reachable from Line 7 or a short Didi.</p>
-    </div>
-
-    <div class="day">
-      <span class="daytag">◷ One day · Pudong-side loop</span>
-
-      <div class="part m">
-        <div class="part-h m"><span class="dot"></span><span class="lbl">Morning · recover</span><span class="ln"></span></div>
-        <div class="card">
-          <h3><span class="emo">🛏️</span> Sleep off the red-eye</h3>
-          <p>You're in by ~08:30. Don't fight it — nap, shower, reset. The room has tea/coffee and four bottles of water. Set an alarm so you don't sleep through the afternoon.</p>
-          <div class="note"><span><b>Tip</b> Curtains shut, ~3h nap</span><span><b>Be up by</b> 12:00</span></div>
-        </div>
+    <section id="day">
+      <div class="shead">
+        <div class="eyebrow">Thursday 25 June</div>
+        <h2>The plan.</h2>
+        <p>Everything stays on the Pudong side of the river. No backtracking, all of it a short ride from the hotel.</p>
       </div>
 
-      <div class="part a">
-        <div class="part-h a"><span class="dot"></span><span class="lbl">Afternoon · ease in</span><span class="ln"></span></div>
-        <div class="card">
-          <h3><span class="emo">🥃</span> Crew happy hour, then go<span class="pill">Free</span></h3>
-          <p>Lobby Bar happy hour runs <b>1–6pm</b> for crew — free light snacks, soft drinks, beer and whisky. Grab a bite and a coffee here instead of a full lunch, then head out around 2pm.</p>
-          <div class="note"><span><b>Where</b> Lobby Bar, 1F</span><span><b>Cost</b> Complimentary (crew)</span></div>
+      <div class="part">
+        <div class="part-h">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18"/><path d="M7 18a5 5 0 0 1 10 0"/><path d="M12 3v3"/><path d="M5.6 8.6l1.4 1.4"/><path d="M18.4 8.6l-1.4 1.4"/></svg>
+          <span class="t">Morning</span><span class="ln"></span>
         </div>
         <div class="card">
-          <h3><span class="emo">🌳</span> Optional: Century Park stretch</h3>
-          <p>If you want air before the city, Century Park — Shanghai's biggest — is a short walk / one stop from the hotel. Lakeside paths, rent a tandem bike, easy and green. Skip if you'd rather save energy for the evening.</p>
-          <div class="note"><span><b>From hotel</b> ~12 min walk</span><span><b>Entry</b> ¥10</span><span><b>Hours</b> 07:00–18:00</span></div>
-        </div>
-        <div class="card">
-          <h3><span class="emo">🏙️</span> Lujiazui — into the skyline</h3>
-          <p>Didi or Metro to Lujiazui (~20–25 min). This is the cluster of giants: Shanghai Tower, the SWFC "bottle-opener", Jin Mao and the Oriental Pearl all in a few blocks. Wander the elevated walkway ring to feel the scale before going up.</p>
-          <div class="note"><span><b>By Didi</b> ~20 min · ~¥30</span><span><b>By Metro</b> L7 → L2, ~30 min</span></div>
+          <h3>Land, and recover.</h3>
+          <p>You're in by about 8:30 after the bus from PVG. Don't fight the tiredness — nap, shower, reset. The room has tea, coffee, and water. Set an alarm so the afternoon doesn't disappear.</p>
+          <div class="meta"><span><b>~3h nap</b></span><span>Up by <b>12:00</b></span></div>
         </div>
       </div>
 
-      <div class="part e">
-        <div class="part-h e"><span class="dot"></span><span class="lbl">Evening · the golden hour</span><span class="ln"></span></div>
-        <div class="card">
-          <h3><span class="emo">🌆</span> Shanghai Tower deck at dusk<span class="pill">Book ahead</span></h3>
-          <p>Time it for ~5:30–6pm: ride to the 118th-floor observatory and watch the city flip from daylight to a sea of lights (June sunset ≈ 7pm). 360° over the Huangpu, the Bund laid out below. The single best hour in your whole stay.</p>
-          <div class="note"><span><b>Hours</b> 08:30–21:30 (last 21:30)</span><span><b>From</b> ~¥160–220</span><span><b>Tip</b> Buy on Trip.com / Klook to skip the queue</span></div>
+      <div class="part">
+        <div class="part-h">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <span class="t">Afternoon</span><span class="ln"></span>
         </div>
         <div class="card">
-          <h3><span class="emo">🌉</span> Riverside walk + the Bund glow</h3>
-          <p>Down at street level, stroll the Binjiang Avenue promenade along the water. From the Pudong bank you get the postcard: the lit-up colonial Bund facing you, Oriental Pearl blazing behind. If you've energy, hop Line 2 one stop under the river to East Nanjing Rd and walk onto the Bund itself.</p>
-          <div class="note"><span><b>Free</b></span><span><b>Best</b> after 7:30pm, lights full on</span></div>
+          <h3>Crew happy hour, then go.<span class="tag">Free</span></h3>
+          <p>The Lobby Bar pours for crew from 1 to 6pm — snacks, coffee, beer, whisky, on the house. A light bite here beats a full lunch. Head out around two.</p>
+          <div class="meta"><span>Lobby Bar, 1F</span><span><b>Complimentary</b></span></div>
         </div>
         <div class="card">
-          <h3><span class="emo">🍜</span> Dinner</h3>
-          <p>Easy + scenic: the IFC or Super Brand Mall in Lujiazui have solid Shanghainese and dumpling spots with river views. Prefer to stay near base? <b>Kerry Parkside</b> (by Century Park) has The Brew and a good restaurant cluster, 5 min from the hotel — smart if you want to be in bed fast.</p>
-          <div class="note"><span><b>Try</b> xiaolongbao, shengjian, drunken crab</span><span><b>Pay</b> Alipay / WeChat</span></div>
+          <h3>Optional: Century Park.</h3>
+          <p>Shanghai's largest park is a twelve-minute walk away. Lakeside paths and rental bikes, if you want green before the skyline. Skip it to save energy for tonight.</p>
+          <div class="meta"><span>12 min walk</span><span>¥10</span><span>07:00–18:00</span></div>
+        </div>
+        <div class="card">
+          <h3>Cross into Lujiazui.</h3>
+          <p>Twenty minutes by Didi puts you under the giants — Shanghai Tower, the SWFC, Jin Mao, the Oriental Pearl, all within a few blocks. Walk the elevated ring first to feel the scale.</p>
+          <div class="meta"><span>Didi <b>~20 min, ~¥30</b></span><span>Metro L7→L2 ~30 min</span></div>
+        </div>
+      </div>
+
+      <div class="part">
+        <div class="part-h">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18"/><path d="M7 18a5 5 0 0 1 10 0"/><path d="M12 9V3"/><path d="M9 6l3 3 3-3"/><path d="M2 13h2M20 13h2"/></svg>
+          <span class="t">Evening</span><span class="ln"></span>
+        </div>
+        <div class="card">
+          <h3>Shanghai Tower, at dusk.<span class="tag">Book ahead</span></h3>
+          <p>Go up around 5:30. The 118th-floor deck catches the city turning from daylight to a field of lights near seven — sunset is the best hour of the whole stay. Buy online to skip the queue.</p>
+          <div class="meta"><span>08:30–21:30</span><span>from <b>~¥160</b></span><span>Trip.com / Klook</span></div>
+        </div>
+        <div class="card">
+          <h3>Walk the waterfront.</h3>
+          <p>Down on Binjiang Avenue, the Bund faces you across the river with the Pearl glowing behind it. For more, ride Line 2 one stop under the river and step onto the Bund itself.</p>
+          <div class="meta"><span><b>Free</b></span><span>Best after 7:30pm</span></div>
+        </div>
+        <div class="card">
+          <h3>Dinner.</h3>
+          <p>IFC and Super Brand Mall in Lujiazui have good Shanghainese with river views. To be in bed fast, Kerry Parkside by Century Park is five minutes from the hotel.</p>
+          <div class="meta"><span>xiaolongbao · shengjian · drunken crab</span><span>Pay with <b>Alipay</b></span></div>
         </div>
       </div>
 
-      <div class="part n">
-        <div class="part-h n"><span class="dot"></span><span class="lbl">Night · wind down</span><span class="ln"></span></div>
+      <div class="part">
+        <div class="part-h">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <span class="t">Night</span><span class="ln"></span>
+        </div>
         <div class="card">
-          <h3><span class="emo">😴</span> Back by ~21:30, lights out early</h3>
-          <p>That 04:45 call comes brutally fast. Be back at the hotel by 9:30–10, pack the night before, lay out your uniform, confirm the wake-up call at the front desk, and sleep. Future-you on the flight deck bus will thank you.</p>
-          <div class="note"><span><b>Wake-up call</b> Confirm at reception</span><span><b>Sleep by</b> ~22:30</span></div>
+          <h3>Early night.</h3>
+          <p>The 4:45 call comes fast. Be back by 9:30, pack tonight, lay out the uniform, confirm the wake-up call at reception, and sleep.</p>
+          <div class="meta"><span>Wake-up call: confirm at reception</span><span>Sleep by <b>22:30</b></span></div>
         </div>
       </div>
-    </div>
 
-    <div class="planb">
-      <h3>😮‍💨 Too wrecked? Plan B</h3>
-      <p>If the red-eye flattened you, don't force the city. A gentler version that still feels like Shanghai:</p>
-      <ul>
-        <li>Long lie-in, late checkout-time nap</li>
-        <li>Crew happy hour (1–6pm) + the hotel pool / gym</li>
-        <li>Sunset stroll in Century Park (12 min walk)</li>
-        <li>Early dinner at Kerry Parkside, 5 min away</li>
-        <li>In bed by 9. Save Lujiazui for the next PVG.</li>
-      </ul>
-    </div>
-
-    <div class="section-head">
-      <div class="eyebrow">Friday 26 June</div>
-      <h2>Home on SQ827</h2>
-    </div>
-    <div class="depart">
-      <div class="eyebrow">Departure timings</div>
-      <h3>Crowne Plaza Jinxiu → PVG</h3>
-      <div class="grid">
-        <div class="b"><div class="k">Call</div><div class="v">04:45</div></div>
-        <div class="b"><div class="k">Pickup</div><div class="v">05:45</div></div>
-        <div class="b"><div class="k">STD</div><div class="v">08:05</div></div>
+      <div class="planb">
+        <h3>Too wrecked? Plan B.</h3>
+        <p>If the red-eye flattened you, don't force the city. A lighter version that still feels like Shanghai.</p>
+        <ul>
+          <li>Long lie-in, late-afternoon nap.</li>
+          <li>Crew happy hour, then the hotel pool and gym.</li>
+          <li>Sunset stroll in Century Park, twelve minutes away.</li>
+          <li>Early dinner at Kerry Parkside, five minutes from base.</li>
+          <li>In bed by nine. Save Lujiazui for the next PVG.</li>
+        </ul>
       </div>
-      <p class="foot">Per station info: SQ827 call is 3h20m before STD, pickup 2h20m. Transport is shared cabin + tech crew; timings may shift earlier for weather/traffic — the hotel is pre-advised. Land back in SIN 13:25.</p>
-    </div>
+    </section>
 
-    <div class="section-head">
-      <div class="eyebrow">Before you go</div>
-      <h2>Know before you land</h2>
-    </div>
-    <div class="tips">
-      <div class="tip"><h4>📱 Phone &amp; apps</h4><p>Google, WhatsApp, Instagram are <b>blocked</b> in China. Turn on roaming or an eSIM (roaming data bypasses the firewall), or have a VPN ready before you land. For maps use <b>Apple Maps</b> or Amap; for rides, Didi.</p></div>
-      <div class="tip"><h4>💳 Paying for things</h4><p>It's a near-cashless city. Link a card to <b>Alipay or WeChat Pay</b> before arrival — most stalls and taxis won't take foreign cards. Keep a little cash as backup.</p></div>
-      <div class="tip"><h4>🌧️ Late-June weather</h4><p>This is plum-rain season (梅雨): hot, sticky, 28–32°C with sudden downpours. Pack a <b>compact umbrella</b> and light, breathable clothes. The skyline is just as good after rain.</p></div>
-      <div class="tip"><h4>🚇 Getting around</h4><p>Metro Line 7 is at your doorstep; add the metro QR in Alipay. Didi is cheap and English-friendly via the Alipay mini-program. Station rule: <b>metered taxis only</b>, and don't drink the tap water.</p></div>
-      <div class="tip"><h4>🏨 Crew perks</h4><p>Happy hour 1–6pm, 25% off F&amp;B with crew ID, free shuttle to Sanchenli Mall (11:00 &amp; 18:20), and the Lobby Bar crew lounge. Front desk handles your wake-up call.</p></div>
-    </div>
+    <section id="home">
+      <div class="shead">
+        <div class="eyebrow">Friday 26 June</div>
+        <h2>Getting home.</h2>
+      </div>
+      <div class="depart">
+        <div class="lab">Crowne Plaza Jinxiu → PVG · SQ827</div>
+        <div class="stat">
+          <div class="c"><div class="k">Call</div><div class="n">04:45</div></div>
+          <div class="c"><div class="k">Pickup</div><div class="n">05:45</div></div>
+          <div class="c"><div class="k">Departs</div><div class="n">08:05</div></div>
+        </div>
+        <p class="foot">Per station info, SQ827 call is 3h20m before departure, pickup 2h20m. Transport is shared with the tech crew and may shift earlier for weather or traffic — the hotel is pre-advised. You're back in Singapore at 13:25.</p>
+      </div>
+    </section>
+
+    <section id="logistics">
+      <div class="shead">
+        <div class="eyebrow">Before you land</div>
+        <h2>Logistics.</h2>
+      </div>
+      <div class="logi">
+        <div class="row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></span>
+          <div><h4>Phone and apps</h4><p>Google, WhatsApp, and Instagram are <b>blocked</b>. Turn on roaming or an eSIM — roaming data bypasses the firewall — or have a VPN ready before you land. Use Apple Maps or Amap, and Didi for rides.</p></div>
+        </div>
+        <div class="row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 9.5h19"/></svg></span>
+          <div><h4>Paying for things</h4><p>Near-cashless city. Link a card to <b>Alipay or WeChat Pay</b> before arrival — most stalls and taxis won't take foreign cards. Keep a little cash as backup.</p></div>
+        </div>
+        <div class="row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2"/><path d="M3.5 12a8.5 8.5 0 0 1 17 0z"/><path d="M12 12v6.5a2.5 2.5 0 0 1-5 0"/></svg></span>
+          <div><h4>Late-June weather</h4><p>Plum-rain season: hot, sticky, 28–32°C with sudden downpours. Pack a <b>compact umbrella</b> and light, breathable clothes. The skyline looks just as good after rain.</p></div>
+        </div>
+        <div class="row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.7 7-11a7 7 0 1 0-14 0c0 5.3 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <div><h4>Getting around</h4><p>Metro Line 7 is at the door — add the metro QR in Alipay. Didi is cheap and works in English via the Alipay mini-program. Station rule: <b>metered taxis only</b>, and don't drink the tap water.</p></div>
+        </div>
+        <div class="row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M10 21v-3h4v3"/></svg></span>
+          <div><h4>Crew perks</h4><p>Happy hour 1–6pm, 25% off food and drink with crew ID, free shuttle to Sanchenli Mall at 11:00 and 18:20, and the Lobby Bar crew lounge. The front desk handles your wake-up call.</p></div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
   <footer>
-    <div class="hr"></div>
-    Built with Claude · 24 Jun 2026 · for Dinnie<br>
-    Hotel &amp; timings from CCD PVG station info · free time from calendar
+    <div class="wrap">
+      <p>Built with Claude · 24 June 2026 · for Dinnie<br>Hotel and crew timings from CCD PVG station info. Free time from calendar.</p>
+    </div>
   </footer>
 
 </body>
